@@ -168,6 +168,9 @@ rm -f %{buildroot}%{_libdir}/*indicators3/7/libworkrave.so*
 # fix appstream ID
 appstream-util modify %{buildroot}%{_metainfodir}/%{app_id}.metainfo.xml id %{app_id}
 
+# move autostart file 
+mv %{buildroot}/usr/etc/xdg/autostart/%{app_id}.desktop %{buildroot}/etc/xdg/autostart/%{app_id}.desktop
+
 %find_lang %{name}
 
 
