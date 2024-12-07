@@ -180,6 +180,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{app_id}.meta
 %doc AUTHORS COPYING NEWS README.md
 %{_bindir}/%{name}
 %{_datadir}/applications/%{app_id}.desktop
+%{_sysconfdir}/xdg/autostart/%{app_id}.desktop
 %{_datadir}/dbus-1/services/%{app_id}.service
 %{_datadir}/glib-2.0/schemas/org.workrave.*.xml
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
