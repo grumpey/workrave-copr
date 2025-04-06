@@ -1,6 +1,6 @@
 %bcond	gnome		1
 %bcond	gnome40		1
-%bcond	gnome45		%[0%{?fedora} || 0%{?rhel} >= 10
+%bcond	gnome45		%[0%{?fedora} || 0%{?rhel} >= 10]
 %bcond	gnome_flashback	%{undefined flatpak}
 %bcond	mate		%{undefined flatpak}
 %bcond	xfce		%{undefined flatpak}
