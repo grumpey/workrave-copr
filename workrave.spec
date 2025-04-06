@@ -1,21 +1,25 @@
 %bcond	gnome		1
 %bcond	gnome40		1
-%bcond	gnome45		%[0%{?fedora} || 0%{?rhel} >= 10]
+%bcond	gnome45		%[0%{?fedora} || 0%{?rhel} >= 10
 %bcond	gnome_flashback	%{undefined flatpak}
 %bcond	mate		%{undefined flatpak}
 %bcond	xfce		%{undefined flatpak}
 
 %global app_id org.workrave.Workrave
+%global commit 2667d6fe5f2f7bdcd64f262b2a3a5d057ff383c1 
+%global date 20250406
+%{?commit:%global shortcommit %(c=%{commit}; echo ${c:0:7})}
 
 Name:          workrave
-Version:       1.11.0~rc.1
+Version:       1.11^%{date}git%{shortcommit}
 Release:       %autorelease
 Summary:       Program that assists in the recovery and prevention of RSI
 # Based on older packages by Dag Wieers <dag@wieers.com> and Steve Ratcliffe
-License:       GPL-3.0-or-later AND LGPL-2.0-or-later
+License:       GPL-3.0-or-later AND LGPL-2.1-or-later
 URL:           https://workrave.org/
-%global tag %(echo %{version} | sed -e 's/[\\.~]/_/g')
-Source:        https://github.com/rcaelers/workrave/archive/v%{tag}/%{name}-v%{tag}.tar.gz
+#%global tag %(echo %{version} | sed -e 's/[\\.~]/_/g')
+#Source:        https://github.com/rcaelers/workrave/archive/v%{tag}/%{name}-v%{tag}.tar.gz
+Source:        https://github.com/rcaelers/workrave/archive/%{commit}/%{name}-%{commit}.tar.gz
 
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
@@ -132,11 +136,10 @@ This package provides an applet for the Xfce panel.
 
 
 %prep
-%autosetup -n workrave-%{tag} -p1
+%autosetup -n %{name}-%{commit} -p1
 
 # use versioned python command
 %py3_shebang_fix libs/dbus/bin/dbusgen.py
-
 
 %build
 %cmake \
