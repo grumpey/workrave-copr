@@ -6,8 +6,8 @@
 %bcond	xfce		%{undefined flatpak}
 
 %global app_id org.workrave.Workrave
-%global commit 2667d6fe5f2f7bdcd64f262b2a3a5d057ff383c1 
-%global date 20250406
+%global commit 10868b0a561aa678d0214acb2f216a6df8f3b97a
+%global date 20250526
 %{?commit:%global shortcommit %(c=%{commit}; echo ${c:0:7})}
 
 Name:          workrave
