@@ -7,7 +7,7 @@
 
 %global app_id org.workrave.Workrave
 %global commit 76d641deb00c5172979780873f7048d6cca30fdd 
-%global date 20250727
+%global date 20250831
 %{?commit:%global shortcommit %(c=%{commit}; echo ${c:0:7})}
 
 Name:          workrave
